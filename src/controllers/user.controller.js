@@ -3,10 +3,9 @@ import ApiError from "../utils/ApiError.js"
 import ApiResponse from "../utils/ApiResponse.js";
 import { User } from "../models/user.model.js";
 import uploadOnCloudinary from "../utils/cloudinary.js";
-import app from "../app.js";
+
 const registerUser = asyncHandler(async (req, res) => {
     const { fullname, email, password, username } = req.body;
-    console.log("email", email);
 
     if ([fullname, email, password, username].some((field) => field?.trim() === "")) {
         throw new ApiError(400, "All fields are required");
